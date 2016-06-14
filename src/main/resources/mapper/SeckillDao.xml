@@ -40,7 +40,6 @@
           create_time
         FROM
           seckill
-        WHERE seckill.seckill_id = #{seckillId}
         ORDER BY create_time DESC
         LIMIT #{offset}, #{limit}
     </select>

@@ -6,8 +6,8 @@
     <insert id="insertSuccessKilled">
       /*主键冲突，会报错（通过配置ignore关键字，插入错误之后不报错，直接返回0，方便后续业务了逻辑的处理）*/
       INSERT ignore INTO
-        success_killed(seckill_id, user_phone)
-      VALUES (#{seckillId}, #{userPhone})
+        success_killed(seckill_id, user_phone, state)
+      VALUES (#{seckillId}, #{userPhone}, 0)
     </insert>
 
     <!--根据seckillId查询SuccessKilled并且携带Seckill实体-->
@@ -29,6 +29,7 @@
           success_killed sk
         INNER JOIN seckill s
           ON sk.seckill_id = s.seckill_id
-        WHERE seckill_id = #{seckillId}
+        WHERE sk.seckill_id = #{seckillId}
+        AND sk.user_phone = #{userPhone}
     </select>
 </mapper>

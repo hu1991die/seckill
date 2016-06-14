@@ -4,6 +4,7 @@
 package com.feizi.dao;
 
 import com.feizi.entity.Seckill;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
 import java.util.List;
@@ -23,7 +24,7 @@ public interface SeckillDao {
      * @param seckillId 秒杀商品id
      * @param killTime 秒杀时间
      */
-    int reduceNumber(long seckillId, Date killTime);
+    int reduceNumber(@Param("seckillId") long seckillId, @Param("killTime") Date killTime);
 
     /**
      * @Desc 根据秒杀库存id查询秒杀商品对象
@@ -39,5 +40,5 @@ public interface SeckillDao {
      * @Date 2016/6/4 19:28
      * @param 
      */
-    List<Seckill> queryAll(int offset, int limit);
+    List<Seckill> queryAll(@Param("offset") int offset, @Param("limit") int limit);
 }

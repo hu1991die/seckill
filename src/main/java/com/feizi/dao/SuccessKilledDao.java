@@ -4,6 +4,7 @@
 package com.feizi.dao;
 
 import com.feizi.entity.SuccessKilled;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @Desc 秒杀成功明细记录数据库访问Dao层
@@ -20,7 +21,7 @@ public interface SuccessKilledDao {
      * @Date 2016/6/4 19:32
      * @param
      */
-    int insertSuccessKilled(long seckillId, long userPhone);
+    int insertSuccessKilled(@Param("seckillId") long seckillId, @Param("userPhone") long userPhone);
 
     /**
      * @Desc 根据id查询SuccessKilled并且携带秒杀商品对象实体
@@ -28,5 +29,5 @@ public interface SuccessKilledDao {
      * @Date 2016/6/4 19:33
      * @param
      */
-    SuccessKilled queryByIdWithSeckill(long seckillId);
+    SuccessKilled queryByIdWithSeckill(@Param("seckillId") long seckillId, @Param("userPhone") long userPhone);
 }
