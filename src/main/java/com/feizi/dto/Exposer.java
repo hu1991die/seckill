@@ -33,6 +33,18 @@ public class Exposer implements Serializable{
     //秒杀结束时间
     private long endTime;
 
+    @Override
+    public String toString() {
+        return "Exposer{" +
+                "exposed=" + exposed +
+                ", md5='" + md5 + '\'' +
+                ", seckillId=" + seckillId +
+                ", nowTime=" + nowTime +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                '}';
+    }
+
     public Exposer(boolean exposed, String md5, long seckillId) {
         this.exposed = exposed;
         this.md5 = md5;
