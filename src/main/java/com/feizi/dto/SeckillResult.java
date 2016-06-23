@@ -10,6 +10,7 @@ package com.feizi.dto;
  * @Package_name com.feizi.dto
  */
 public class SeckillResult<T> {
+    //操作结果是否成功，不表示业务操作成功
     private boolean success;
 
     private T data;

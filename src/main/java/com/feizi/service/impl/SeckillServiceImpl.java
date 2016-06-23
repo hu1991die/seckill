@@ -63,7 +63,7 @@ public class SeckillServiceImpl implements SeckillService{
      * @Date 2016/6/8 15:54
      */
     public List<Seckill> getSeckillList() {
-        return seckillDao.queryAll(0, 4);
+        return seckillDao.queryAll(0, 5);
     }
 
     /**
