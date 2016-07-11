@@ -8,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Desc 秒杀库存数据库访问dao层
@@ -41,4 +42,13 @@ public interface SeckillDao {
      * @param 
      */
     List<Seckill> queryAll(@Param("offset") int offset, @Param("limit") int limit);
+
+    /**
+     * @Desc 使用存储过程执行秒杀
+     * @Author feizi
+     * @Date 2016/7/10 14:45
+     * @param
+     * @return
+     */
+    void executeSeckillByProcedure(Map<String,Object> paramMap);
 }

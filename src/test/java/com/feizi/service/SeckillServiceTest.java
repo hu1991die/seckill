@@ -103,4 +103,34 @@ public class SeckillServiceTest {
             logger.error(e.getMessage());
         }
     }
+
+    /**
+     * @Desc 测试调用存储过程执行秒杀操作
+     * @Author feizi
+     * @Date 2016/7/10 15:25
+     * @param
+     * @return
+     */
+    @Test
+    public void testExecuteSeckillByProcedure() throws Exception{
+        long id = 1004;
+        long userPhone = 18565815837L;
+
+        Exposer exposer = this.seckillService.exportSeckillUrl(id);
+        if(exposer.isExposed()){
+            logger.info("exposer={}",exposer);
+            String md5 = exposer.getMd5();
+            try {
+                SeckillExecution seckillExecution = this.seckillService.executeSeckill(id, userPhone, md5);
+                logger.info(seckillExecution.getStateInfo());
+                logger.info("seckillExecution={}",seckillExecution);
+            } catch (RepeatKillException e) {
+                logger.error(e.getMessage());
+            }catch (SeckillClosedException e){
+                logger.error(e.getMessage());
+            }
+        }else{
+            logger.error(exposer.toString());
+        }
+    }
 }

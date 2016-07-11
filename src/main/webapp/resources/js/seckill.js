@@ -51,6 +51,9 @@ var seckill = {
                     //显示秒杀结果信息
                     node.show();
                 }else{
+                    //日志输出错误信息
+                    console.log('result:' + result);
+
                     //未开启秒杀,获取到相应时间,用户浏览器存在时间偏差
                     var nowTime = exposer['nowTime'];
                     var startTime = exposer['startTime'];
